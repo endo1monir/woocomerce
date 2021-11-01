@@ -1,0 +1,44 @@
+/**
+ * Customize product data tabs
+ */
+add_filter( 'woocommerce_product_tabs', 'woo_custom_description_tab', 98 );
+function woo_custom_description_tab( $tabs ) {
+
+	$tabs['additional_information']['callback'] = 'woo_custom_description_tab_content';	// Custom description callback
+
+	return $tabs;
+}
+
+function woo_custom_description_tab_content() {
+	echo '
+	<div class="row" style="display: flex;align-items: stretch;">
+	<div style="flex-grow: 1" class="col-lg-3">
+	<p> التوقيت </p>
+	<ul class="myendo" style="list-style-type:none">
+	<li>12:30-2:30</li>
+	<li>2:30-4:30</li>
+	<li>4:30-6:30</li>
+	</ul>
+</div>
+<div style="flex-grow: 1" class="col-lg-3">
+	<p> الايام </p>
+	<ul class="myendo" style="list-style-type:none">
+	<li>الجمعة</li>
+	<li>السبت</li>
+	</ul>
+</div>
+<div style="flex-grow: 1" class="col-lg-3">
+	<p> الطاولات </p>
+
+	<ul class="myendo" style="list-style-type:none">
+	<li>مقعد واحد</li>
+	<li>مقعدين</li>
+	<li>ثلاث مقاعد</li>
+	<li>اربع مقاعد</li>
+	<li>ستة مقاعد</li>
+	</ul>
+</div>
+	</div>
+';
+// 	echo '<p>Here\'s a custom description</p>';
+}
